@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+<section id="content">
+  <header id="header">
+    <!-- <%= link_to root_path do %>
+    <%= image_tag "logo.svg", class: 'logo' %>
+    <% end %> -->
+    <%= link_to "Yumako", root_path, class: "site-name hello" %>
+    <div class="buttons">
+      <%= link_to new_post_path do  %>
+      <button class="button">New Post</button>
+      <% end %>
+      <button class="button">Log Out</button>
+    </div>
+
+  </header>
+  <% flash.each do |name,msg| %>
+    <%= content_tag(:div, msg, class: "alert") %>
+  <% end %>
+    <%= yield %>
+</section>
+</div>
+</body>
+</html>
