@@ -7,7 +7,7 @@
     Submitted <%= time_ago_in_words(@post.created_at) %> Ago
   </p>
 <p>
-<%= image_tag(@post.image_url) %>
+<%= image_tag @post.image.thumb.url %>
 </p>
   <p class="body">
     <%= @post.body %>

@@ -14,9 +14,14 @@
   <%= f.text_field :title %>
 </p>
 <p>
-<%= f.label :image %>
-<%= f.file_field :image %>
-	 </p>
+	<%= f.label :image %>
+	<%= f.file_field :image %>
+ </p>
+ <p>
+    <label>External Url:</label>
+    <%= image_tag(@post.image_url) %>
+    <%= f.text_field :remote_image_url %>
+  </p>
 <p>
   <%= f.label :body %>
   <%= f.text_area :body %>
