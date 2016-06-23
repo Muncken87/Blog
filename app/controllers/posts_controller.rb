@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.params[:file]
+    @user.save
 
   end
 
