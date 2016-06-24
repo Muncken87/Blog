@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   Rails.env.production?
   def index
     @posts = Post.all.order('created_at DESC')
@@ -6,9 +7,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.params[:file]
-    @user.save
-
   end
 
   def show
@@ -37,6 +35,7 @@ class PostsController < ApplicationController
       render 'edit'
     end
   end
+
 
   def destroy
 		@post = Post.find(params[:id])
