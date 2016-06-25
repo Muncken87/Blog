@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.image = params[:image]
     @post.remote_image_url = params[:remote_image_url]
+    @post.save
     if @post.save
       redirect_to @post
     else
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.remove_image!
     @post.save
-    if @post.update(params[:post].permit(:title, :body,:image,:remote_image_url))
+    if @post.update(params[:post].permit(:title, :body,:image,:remote_image_url,:remove_image))
       redirect_to @post
     else
       render 'edit'

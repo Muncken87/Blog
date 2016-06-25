@@ -1,4 +1,10 @@
 Rails.application.configure do
+
+  CarrierWave.configure do |config|
+    config.ignore_integrity_errors = false
+    config.ignore_processing_errors = false
+    config.ignore_download_errors = false
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
