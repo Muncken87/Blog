@@ -41,8 +41,8 @@ class PostsController < ApplicationController
   def destroy
 		@post = Post.find(params[:id])
     @post.remove_image!
-    @post.save
 		@post.destroy
+    @post.save
 
 		redirect_to posts_path
 	end
