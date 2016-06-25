@@ -6,7 +6,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.save
   end
 
   def show
@@ -16,6 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.image = params[:image]
+    @post.save
     if @post.save
       redirect_to @post
     else
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.image.save
+    @post.save
     if @post.update(params[:post].permit(:title, :body, :image,:remove_image,:remote_image_url))
       redirect_to @post
     else
