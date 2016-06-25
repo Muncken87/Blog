@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.image.save
-    if @post.update(params[:post].permit(:title, :body, :image,:remove_image))
+    if @post.update(params[:post].permit(:title, :body, :image,:remove_image,:remote_image_url))
       redirect_to @post
     else
       render 'edit'
@@ -48,6 +48,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :id,:image,:remove_image)
+      params.require(:post).permit(:title, :body, :id,:image,:remove_image,:remote_image_url)
     end
 end
