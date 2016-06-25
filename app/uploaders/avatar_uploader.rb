@@ -1,14 +1,15 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
-  attr_accessor :image,:title,:body, :remote_image_url
+  attr_accessor :image,:title,:body
   #include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  #storage :fog
+  #storage :file
+  storage :fog
+
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
