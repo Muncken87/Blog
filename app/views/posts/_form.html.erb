@@ -22,6 +22,12 @@
     <%= image_tag(@post.image_url) %>
     <%= f.text_field :remote_image_url ,placeholder: "www.yourfile.com/file.jpg"%>
   </p>
+	<p>
+    <label>
+      <%= f.check_box :remove_image %>
+      Remove image
+    </label>
+  </p>
 <p>
   <%= f.label :body %>
   <%= f.text_area :body %>
