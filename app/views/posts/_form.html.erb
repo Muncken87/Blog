@@ -20,7 +20,7 @@
  <p>
     <label>Image Url:</label>
     <%= image_tag(@post.image_url) %>
-    <%= f.text_field :remote_image_url%>
+    <%= f.text_field :remote_image_url ,placeholder: "www.yourfile.com/file.jpg"%>
   </p>
 <p>
   <%= f.label :body %>
