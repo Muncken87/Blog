@@ -29,6 +29,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.image.save
     if @post.update(params[:post].permit(:title, :body, :image,:remove_image))
       redirect_to @post
     else
@@ -39,7 +40,6 @@ class PostsController < ApplicationController
 
   def destroy
 		@post = Post.find(params[:id])
-    @post.remove_image!
 		@post.destroy
 
 		redirect_to posts_path

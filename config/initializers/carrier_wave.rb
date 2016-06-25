@@ -2,8 +2,8 @@ require 'fog/aws'
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider:              'AWS',
-    aws_access_key_id:     'AKIAIBB7LS6SCCVNVJ2Q',
-    aws_secret_access_key: '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',              region:                'eu-central-1'
+    aws_access_key_id:     'AKIAIIE5DDMRFJXFAPSQ',
+    aws_secret_access_key: '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',              region:                'eu-central-1'
 
   }
   config.fog_directory  = 'rails-blog-alex'                          # required
