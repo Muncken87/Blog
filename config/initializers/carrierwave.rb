@@ -5,7 +5,6 @@ CarrierWave.configure do |config|
     :aws_secret_access_key => ENV['S3_SECRET_KEY'],
 
   }
-  config.fog_directory  = ENV['S3_BUCKET']
-  config.serve_static_assets = true                          # required
+  config.fog_directory  = ENV['S3_BUCKET']                        # required
 
   end
