@@ -1,5 +1,5 @@
+<div class="post_wrapper">
 <% @posts.each do |post| %>
-  <div class="post_wrapper">
     <h4 class="title"><%= link_to post.title, post %></h4>
     <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
 
@@ -9,5 +9,5 @@
   <% end %>
     <div class="u-cf"></div>
     <%= truncate post.body, length: 350 %>
-  </div>
 <% end %>
+</div>
