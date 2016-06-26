@@ -19,15 +19,19 @@
  </p>
  <p>
     <label>Image Url:</label>
-    <%= image_tag(@post.image_url) %>
     <%= f.text_field :remote_image_url ,placeholder: "www.yourfile.com/file.jpg"%>
   </p>
+	<p>
+		  <%= image_tag(@post.image_url) %>
+	</p>
+	<% if @post.image.present? %>
 	<p>
     <label>
       <%= f.check_box :remove_image %>
       Remove image
     </label>
   </p>
+	<% end %>
 <p>
   <%= f.label :body %>
   <%= f.text_area :body %>

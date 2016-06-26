@@ -2,9 +2,9 @@
   <div class="post_wrapper">
     <h4 class="title"><%= link_to post.title, post %></h4>
     <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
-    <!-- <%= image_tag post.image_url, class: 'index-image' %> -->
+
     <% if post.image.present? %>
-    <div class="index-image" style="background-image:url(<%= image_url(post.image_url) %>)"></div>
+    <div class="index-image" style="background-image:url(<%= image_url (post.image_url) %>)"></div>
     <% else %>
   <% end %>
     <div class="u-cf"></div>
