@@ -1,4 +1,3 @@
-if Rails.env.production?
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider => 'AWS',
@@ -10,4 +9,3 @@ CarrierWave.configure do |config|
   config.serve_static_assets = true                          # required
 
   end
-end
