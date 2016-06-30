@@ -9,30 +9,46 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div class="container">
   <% if notice %>
     <p id="notice" class="notice"><%= notice %></p>
   <% end %>
   <% if alert %>
     <p id="alert" class="alert alert-info"><%= alert %></p>
   <% end %>
-<div class="container">
 <section id="content">
   <header id="header">
     <!-- <%= link_to root_path do %>
     <%= image_tag "logo.svg", class: 'logo' %>
     <% end %> -->
-    <%= link_to "Yumako", root_path, class: "site-name hello" %> 
+
+    <%= link_to "Yumako", root_path, class: "site-name hello" %>
+
     <div class="buttons">
-      <%= link_to new_post_path do  %>
-      <button class="button">New Post</button>
+      <% if user_signed_in? %>
+        <%= link_to new_post_path do  %>
+        <button class="button">New Post</button>
+        <% end %>
       <% end %>
-      <button class="button">Log Out</button>
+
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, :method => :delete do %>
+          <button class="button">Log Out</button>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button class="button">Login</button>
+        <% end %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to root_path do  %>
+        <%= image_tag "logo.svg", class: 'logo' %>
+        <% end %>
+      <% end %>
     </div>
 
   </header>
-  <% flash.each do |name,msg| %>
-    <%= content_tag(:div, msg, class: "alert") %>
-  <% end %>
     <%= yield %>
 </section>
 </div>

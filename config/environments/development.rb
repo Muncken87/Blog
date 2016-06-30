@@ -5,6 +5,12 @@ Rails.application.configure do
     config.ignore_processing_errors = false
     config.ignore_download_errors = false
   end
+
+  if Rails.env.production?
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  else
+
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
