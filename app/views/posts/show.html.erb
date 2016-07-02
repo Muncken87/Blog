@@ -3,6 +3,7 @@
   <h3 class="title">
     <%= @post.title %>
   </h3>
+
   <h2> <%=  %> </h2>
   <p class="date">
     Submitted <%= time_ago_in_words(@post.created_at) %> Ago
@@ -11,13 +12,12 @@
     <%= link_to root_path(@post) do %>
       <button class="button">Back</button>
     <% end %>
-    <%= link_to edit_post_path(@post) do %>
-      <button class="button">Edit</button>
-    <% end %>
-
+      <%= link_to edit_post_path(@post) do %>
+        <button class="button">Edit</button>
       <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } do %>
           <button class="button">Delete</button>
-    <% end %>
 
+    <% end %>
+<% end %>
 
 </div>
