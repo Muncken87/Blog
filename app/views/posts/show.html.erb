@@ -12,11 +12,12 @@
     <%= link_to root_path(@post) do %>
       <button class="button">Back</button>
     <% end %>
+    <% if user_signed_in? %>
       <%= link_to edit_post_path(@post) do %>
         <button class="button">Edit</button>
       <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } do %>
           <button class="button">Delete</button>
-
+          <% end %>
     <% end %>
 <% end %>
 

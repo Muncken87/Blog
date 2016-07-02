@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 before_action :authenticate_user!,except:[:index, :show]
+load_and_authorize_resource
 
 
   def index
@@ -15,9 +16,9 @@ before_action :authenticate_user!,except:[:index, :show]
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
     @post.image = params[:image]
-    @post.user_id = current_user
+    @post.user_id = current_user.id
     if @post.save
       redirect_to @post
     else
