@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
 
 
-  def show
-    @post.user = current_user
+  def index
+    @post.user = Post.all
   end
 
 end

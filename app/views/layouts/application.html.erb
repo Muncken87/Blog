@@ -49,10 +49,7 @@
       <% end %>
 
       <% if user_signed_in? %>
-        <%= link_to root_path do  %>
-        <%= image_tag "logo.svg", class: 'logo' %>
-        <button class="button"><%= @post.user.email %></button>
-        <% end %>
+        <button class="button"><%= current_user.email %></button>
       <% end %>
     </div>
 

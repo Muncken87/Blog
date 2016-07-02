@@ -50,8 +50,6 @@ load_and_authorize_resource
 		redirect_to posts_path
 	end
 
-
-
   private
     def post_params
       params.require(:post).permit(:title, :body, :id,:image,:remove_image,:remote_image_url,:user_id)
