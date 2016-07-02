@@ -35,15 +35,23 @@
         <%= link_to destroy_user_session_path, :method => :delete do %>
           <button class="button">Log Out</button>
         <% end %>
+
       <% else %>
+
         <%= link_to new_user_session_path do %>
           <button class="button">Login</button>
         <% end %>
+
+        <%= link_to new_user_registration_path do %>
+          <button class="button">Sign up</button>
+        <% end %>
+
       <% end %>
 
       <% if user_signed_in? %>
         <%= link_to root_path do  %>
         <%= image_tag "logo.svg", class: 'logo' %>
+        <button class="button"><%= @post.user.email %></button>
         <% end %>
       <% end %>
     </div>
