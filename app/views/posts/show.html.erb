@@ -8,7 +8,7 @@
   <p class="date">
     Submitted <%= time_ago_in_words(@post.created_at) %> Ago
   </p>
-  <%= markdown h @post.body %>
+  <%= markdown (@post.body) %>
 
   <%= link_to root_path(@post) do %>
     <button class="button">Back</button>
