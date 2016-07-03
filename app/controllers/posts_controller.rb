@@ -24,12 +24,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-     @post = Post.find(params[:id])
+     @post = Post.friendly.find(params[:id])
      @post.user_id = current_user.id
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.user_id = current_user.id
     @post.save
     if @post.update(params[:post].permit(:title, :body, :image,:remove_image,:remote_image_url,:description))
