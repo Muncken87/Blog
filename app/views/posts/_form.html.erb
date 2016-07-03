@@ -12,7 +12,10 @@
 <p>
   <%= f.label :title %>
   <%= f.text_field :title %>
-	<!-- <%= f.text_field :user_id, :value => current_user.id %> -->
+</p>
+<p>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "description" %>
 </p>
 <p>
 	<%= f.label :image %>

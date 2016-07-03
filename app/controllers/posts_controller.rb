@@ -35,7 +35,7 @@ load_and_authorize_resource
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
     @post.save
-    if @post.update(params[:post].permit(:title, :body, :image,:remove_image,:remote_image_url))
+    if @post.update(params[:post].permit(:title, :body, :image,:remove_image,:remote_image_url,:description))
       redirect_to @post
     else
       render 'edit'
@@ -52,6 +52,6 @@ load_and_authorize_resource
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :id,:image,:remove_image,:remote_image_url,:user_id)
+      params.require(:post).permit(:title, :body, :id,:image,:remove_image,:remote_image_url,:user_id,:description)
     end
 end
