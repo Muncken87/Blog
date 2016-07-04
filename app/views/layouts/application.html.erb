@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>Blog</title>
@@ -49,7 +49,7 @@
       <% end %>
 
       <% if user_signed_in? %>
-        <button class="button"><%= current_user.email %></button>
+        <button class="button"><%=  current_user.user_name %></button>
       <% end %>
     </div>
 
