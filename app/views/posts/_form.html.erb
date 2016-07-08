@@ -25,9 +25,11 @@
     <label>Image Url:</label>
     <%= f.text_field :remote_image_url ,placeholder: "www.yourfile.com/file.jpg"%>
   </p>
-	<p>
-		  <%= image_tag(@post.image_url) %>
-	</p>
+	<% if @post.image.present? %>
+		<p>
+			  <%= image_tag(@post.image_url) %>
+		</p>
+	<% end %>
 	<% if @post.image.present? %>
 	<p>
     <label>
