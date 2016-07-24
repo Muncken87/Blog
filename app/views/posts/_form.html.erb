@@ -18,7 +18,7 @@
   <%= f.text_area :description, class: "description" %>
 </p>
 <p>
-	<%= f.label :image %>
+	<%= f.label :image, class: "block" %>
 	<%= f.file_field :image  %>
  </p>
  <p>
@@ -40,6 +40,7 @@
 	<% end %>
 <p>
   <%= f.label :body %>
+	<small>(Type in markdown if you wish!)</small>
   <%= f.text_area :body %>
 </p>
 <p>

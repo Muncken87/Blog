@@ -9,53 +9,50 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<% if notice %>
+  <p id="notice" class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p id="alert" class="alert alert-info"><%= alert %></p>
+<% end %>
 <div class="container">
-  <% if notice %>
-    <p id="notice" class="alert alert-notice"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p id="alert" class="alert alert-info"><%= alert %></p>
-  <% end %>
-<section id="content">
-  <header id="header">
-    <!-- <%= link_to root_path do %>
-    <%= image_tag "logo.svg", class: 'logo' %>
-    <% end %> -->
+  <section id="content">
+    <header id="header">
+      <!-- <%= link_to root_path do %>
+      <%= image_tag "logo.svg", class: 'logo' %>
+      <% end %> -->
+      <%= link_to "Yumako", root_path, class: "site-name hello" %>
 
-    <%= link_to "Yumako", root_path, class: "site-name hello" %>
-
-
-    <div class="buttons">
-      <% if user_signed_in? %>
-        <%= link_to new_post_path do  %>
-        <button class="button">New Post</button>
-        <% end %>
-      <% end %>
-
-      <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, :method => :delete do %>
-          <button class="button">Log Out</button>
+      <div class="buttons">
+        <% if user_signed_in? %>
+          <%= link_to new_post_path do  %>
+          <button class="button">New Post</button>
+          <% end %>
         <% end %>
 
-      <% else %>
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, :method => :delete do %>
+            <button class="button">Log Out</button>
+          <% end %>
 
-        <%= link_to new_user_session_path do %>
-          <button class="button">Login</button>
+        <% else %>
+
+          <%= link_to new_user_session_path do %>
+            <button class="button">Login</button>
+          <% end %>
+
+          <%= link_to new_user_registration_path do %>
+            <button class="button">Sign up</button>
+          <% end %>
         <% end %>
 
-        <%= link_to new_user_registration_path do %>
-          <button class="button">Sign up</button>
+        <% if user_signed_in? %>
+          <button class="button"><%=  current_user.user_name %></button>
         <% end %>
-      <% end %>
-
-      <% if user_signed_in? %>
-        <button class="button"><%=  current_user.user_name %></button>
-      <% end %>
-    </div>
-
-  </header>
+      </div>
+    </header>
     <%= yield %>
-</section>
+  </section>
 </div>
 </body>
 </html>
