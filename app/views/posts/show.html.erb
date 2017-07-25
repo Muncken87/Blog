@@ -4,8 +4,9 @@
     <%= @post.title %>
   </h3>
   <p class="date">
-    Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+    Submitted <%= time_ago_in_words(@post.created_at) %> Ago |
   </p>
+  <p class="user-name"><%= @post.user.user_name %></p>
   <hr>
   <%= markdown (@post.body) %>
 

@@ -21,10 +21,10 @@
       <!-- <%= link_to root_path do %>
       <%= image_tag "logo.svg", class: 'logo' %>
       <% end %> -->
-      <%= link_to "Yumako", root_path, class: "site-name hello" %>
+      <%= link_to "Alexander Munck", root_path, class: "site-name hello" %>
 
       <div class="buttons">
-        <% if user_signed_in? %>
+        <% if signed_in? && current_user.admin? %>
           <%= link_to new_post_path do  %>
           <button class="button">New Post</button>
           <% end %>

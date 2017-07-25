@@ -1,8 +1,8 @@
 <div class="post_wrapper">
 <% @posts.each do |post| %>
     <h4 class="title"><%= link_to post.title, post %></h4>
-    <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
-
+    <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %> |</p>
+    <p class="user-name"><%= post.user.user_name %></p>
     <% if post.image.present? %>
     <div class="index-image" style="background-image:url(<%= image_url (post.image_url) %>)"></div>
     <% else %>
