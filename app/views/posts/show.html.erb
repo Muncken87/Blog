@@ -1,6 +1,5 @@
 <div class="post_content">
   <%= image_tag @post.image, class: 'post-image' %>
-
   <h3 class="title">
     <%= @post.title %>
   </h3>
@@ -33,6 +32,25 @@
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
+  <%= link_to root_path(@post) do %>
+    <button class="button">Back</button>
+  <% end %>
 
+    <% if current_user and current_user.id == @post.user_id %>
+      <%= link_to edit_post_path(@post) do %>
+        <button class="button">Edit</button>
+      <% end %>
+      <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <button class="button">Delete</button>
+      <% end %>
+
+      <% elsif signed_in? && current_user.admin? %>
+        <%= link_to edit_post_path(@post) do %>
+          <button class="button">Edit</button>
+        <% end %>
+        <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <button class="button">Delete</button>
+        <% end %>
+    <% end %>
 
 </div>
