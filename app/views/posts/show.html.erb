@@ -1,5 +1,6 @@
 <div class="post_content">
   <%= image_tag @post.image, class: 'post-image' %>
+
   <h3 class="title">
     <%= @post.title %>
   </h3>
@@ -10,25 +11,28 @@
   <hr>
   <%= markdown (@post.body) %>
 
-  <%= link_to root_path(@post) do %>
-    <button class="button">Back</button>
-  <% end %>
+  <div id="disqus_thread"></div>
+  <script>
 
-    <% if current_user and current_user.id == @post.user_id %>
-      <%= link_to edit_post_path(@post) do %>
-        <button class="button">Edit</button>
-      <% end %>
-      <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <button class="button">Delete</button>
-      <% end %>
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  /*
+  var disqus_config = function () {
+  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://https-yumako-blog-herokuapp-com.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-      <% elsif signed_in? && current_user.admin? %>
-        <%= link_to edit_post_path(@post) do %>
-          <button class="button">Edit</button>
-        <% end %>
-        <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <button class="button">Delete</button>
-        <% end %>
-    <% end %>
+
+
 
 </div>
